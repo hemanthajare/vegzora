@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegzora - Coming Soon in Indore</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #0A192F;
+            --secondary-blue: #112240;
+            --accent-green: #00D084;
+            --accent-green-hover: #00a86b;
+            --text-light: #F8F9FA;
+            --text-muted: #8892B0;
+            --bg-light: #F4F7F6;
+            --text-dark: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--text-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* --- UI Components --- */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 0;
+        }
+
+        .text-center { text-align: center; }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-green);
+            color: var(--primary-blue);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-green-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 208, 132, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-light);
+            border-color: var(--accent-green);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(0, 208, 132, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline-dark {
+            background-color: transparent;
+            color: var(--accent-green);
+            border-color: var(--accent-green);
+        }
+
+        .btn-outline-dark:hover {
+            background-color: var(--accent-green);
+            color: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        /* --- Header / Nav --- */
+        header {
+            background-color: var(--primary-blue);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        .logo span {
+            color: var(--accent-green);
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            padding: 160px 0 100px;
+            text-align: center;
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        #hero p.subheading {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .launch-badge {
+            display: inline-block;
+            background-color: rgba(0, 208, 132, 0.1);
+            color: var(--accent-green);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            border: 1px solid var(--accent-green);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* --- How It Works --- */
+        #how-it-works {
+            background-color: var(--text-light);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .step-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .step-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(0, 208, 132, 0.1);
+            color: var(--accent-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 20px;
+        }
+
+        .step-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        /* --- Vehicle Types --- */
+        #vehicle-types {
+            background-color: var(--bg-light);
+        }
+
+        .vehicles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .vehicle-item {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .vehicle-item i {
+            font-size: 4rem;
+            color: var(--secondary-blue);
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+        
+        .vehicle-item:hover i {
+            color: var(--accent-green);
+        }
+
+        .vehicle-item h4 {
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+        }
+
+        /* --- Dual Sections (Owners / Renters) --- */
+        #dual-roles {
+            background-color: var(--text-light);
+        }
+
+        .dual-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .role-card {
+            background: var(--secondary-blue);
+            color: var(--text-light);
+            padding: 60px 40px;
+            border-radius: 16px;
+        }
+
+        .role-card.renter {
+            background: var(--primary-blue);
+        }
+
+        .role-card h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--accent-green);
+        }
+
+        .role-card p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 0;
+        }
+
+        /* --- Waiting List --- */
+        #waiting-list {
+            background-color: var(--accent-green);
+            color: var(--primary-blue);
+            text-align: center;
+        }
+
+        #waiting-list .section-title {
+            color: var(--primary-blue);
+        }
+
+        #waiting-list p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .waiting-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        #waiting-list .btn-primary {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+        }
+        
+        #waiting-list .btn-primary:hover {
+            background-color: #081222;
+        }
+
+        #waiting-list .btn-outline {
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
+        }
+        
+        #waiting-list .btn-outline:hover {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--text-muted);
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .social-icons a {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-green);
+        }
+
+        .footer-email {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+        
+        .footer-email:hover {
+            color: var(--accent-green);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            #hero h1 { font-size: 2.5rem; }
+            .dual-grid { grid-template-columns: 1fr; }
+            .vehicles-grid { grid-template-columns: 1fr; gap: 20px; }
+            .hero-buttons { flex-direction: column; }
+            .waiting-buttons { flex-direction: column; }
+            .btn { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">Veg<span>zora</span></a>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h1>Earn From Your Vehicle <br>When You're Not Using It</h1>
+            <p class="subheading">Vegzora is a smart vehicle sharing platform where you can rent vehicles or list your own vehicle and earn passive income.</p>
+            <div class="launch-badge"><i class="fas fa-map-marker-alt"></i> Launching Soon in Indore</div>
+            <div class="hero-buttons">
+                <a href="https://forms.gle/SbBBjYCrX3gzSsd27" class="btn btn-primary">Join Waiting List as Vehicle Owner</a>
+                <a href="https://forms.gle/ywcTmmBDXp6gokVGA" class="btn btn-outline">Join Waiting List as Renter</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works">
+        <div class="container text-center">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3>Step 1: List your vehicle</h3>
+                    <p>Register your vehicle on our platform with basic details and availability.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Step 2: Customers book</h3>
+                    <p>Verified customers browse and book your vehicle for their required duration.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3>Step 3: Earn income</h3>
+                    <p>Sit back and earn up to 80% of the rental income directly to your bank account.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="vehicle-types">
+        <div class="container text-center">
+            <h2 class="section-title">Vehicles Available</h2>
+            <div class="vehicles-grid">
+                <div class="vehicle-item">
+                    <i class="fas fa-motorcycle"></i>
+                    <h4>Scooter</h4>
+                </div>
+                <div class="vehicle-item">
+                    <i class="fas fa-bicycle"></i>
+                    <h4>Bike</h4>
+                </div>
+                <div class="vehicle-item">
+                    <i class="fas fa-car"></i>
+                    <h4>Car</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="dual-roles">
+        <div class="container">
+            <div class="dual-grid">
+                <div class="role-card owner">
+                    <h2>Earn From Your Idle Vehicle</h2>
+                    <p>If your vehicle is parked and not being used, list it on Vegzora and start earning. We handle bookings, customers, and payments.</p>
+                </div>
+                <div class="role-card renter">
+                    <h2>Rent Vehicles Easily</h2>
+                    <p>Rent scooters, bikes, and cars easily at affordable prices through Vegzora. Find the perfect ride for your next journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="waiting-list">
+        <div class="container">
+            <h2 class="section-title">Get Ready to Ride & Earn</h2>
+            <p>Be the first to access Vegzora when we launch.</p>
+            <div class="waiting-buttons">
+                <a href="https://forms.gle/SbBBjYCrX3gzSsd27" target="_blank" class="btn btn-primary">Vehicle Owner Waiting List</a>
+                <a href="https://forms.gle/ywcTmmBDXp6gokVGA" target="_blank" class="btn btn-outline">Renter Waiting List</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-icons">
+                <a href="https://www.instagram.com/vegzora/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+            <a href="mailto:vegzora@gmail.com" class="footer-email">vegzora@gmail.com</a>
+        </div>
+        <div class="copyright">
+            © 2026 Vegzora. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
