@@ -1,500 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vegzora - Coming Soon in Indore</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --primary-blue: #0A192F;
-            --secondary-blue: #112240;
-            --accent-green: #00D084;
-            --accent-green-hover: #00a86b;
-            --text-light: #F8F9FA;
-            --text-muted: #8892B0;
-            --bg-light: #F4F7F6;
-            --text-dark: #333333;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--text-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        /* --- UI Components --- */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 0;
-        }
-
-        .text-center { text-align: center; }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 28px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: 2px solid transparent;
-        }
-
-        .btn-primary {
-            background-color: var(--accent-green);
-            color: var(--primary-blue);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--accent-green-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 208, 132, 0.3);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--text-light);
-            border-color: var(--accent-green);
-        }
-
-        .btn-outline:hover {
-            background-color: rgba(0, 208, 132, 0.1);
-            transform: translateY(-2px);
-        }
-        
-        .btn-outline-dark {
-            background-color: transparent;
-            color: var(--accent-green);
-            border-color: var(--accent-green);
-        }
-
-        .btn-outline-dark:hover {
-            background-color: var(--accent-green);
-            color: var(--primary-blue);
-            transform: translateY(-2px);
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            color: var(--primary-blue);
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        /* --- Header / Nav --- */
-        header {
-            background-color: var(--primary-blue);
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .nav-container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--text-light);
-            text-decoration: none;
-            letter-spacing: 1px;
-        }
-        .logo span {
-            color: var(--accent-green);
-        }
-
-        /* --- Hero Section --- */
-        #hero {
-            background-color: var(--primary-blue);
-            color: var(--text-light);
-            padding: 160px 0 100px;
-            text-align: center;
-        }
-
-        #hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        #hero p.subheading {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-
-        .launch-badge {
-            display: inline-block;
-            background-color: rgba(0, 208, 132, 0.1);
-            color: var(--accent-green);
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 40px;
-            border: 1px solid var(--accent-green);
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        /* --- How It Works --- */
-        #how-it-works {
-            background-color: var(--text-light);
-        }
-
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .step-card {
-            background: #fff;
-            padding: 40px 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .step-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .step-icon {
-            width: 70px;
-            height: 70px;
-            background-color: rgba(0, 208, 132, 0.1);
-            color: var(--accent-green);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            margin: 0 auto 20px;
-        }
-
-        .step-card h3 {
-            font-size: 1.3rem;
-            color: var(--primary-blue);
-            margin-bottom: 15px;
-        }
-
-        /* --- Vehicle Types --- */
-        #vehicle-types {
-            background-color: var(--bg-light);
-        }
-
-        .vehicles-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .vehicle-item {
-            text-align: center;
-            padding: 30px;
-        }
-
-        .vehicle-item i {
-            font-size: 4rem;
-            color: var(--secondary-blue);
-            margin-bottom: 15px;
-            transition: color 0.3s ease;
-        }
-        
-        .vehicle-item:hover i {
-            color: var(--accent-green);
-        }
-
-        .vehicle-item h4 {
-            font-size: 1.2rem;
-            color: var(--primary-blue);
-        }
-
-        /* --- Dual Sections (Owners / Renters) --- */
-        #dual-roles {
-            background-color: var(--text-light);
-        }
-
-        .dual-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        .role-card {
-            background: var(--secondary-blue);
-            color: var(--text-light);
-            padding: 60px 40px;
-            border-radius: 16px;
-        }
-
-        .role-card.renter {
-            background: var(--primary-blue);
-        }
-
-        .role-card h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--accent-green);
-        }
-
-        .role-card p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            margin-bottom: 0;
-        }
-
-        /* --- Waiting List --- */
-        #waiting-list {
-            background-color: var(--accent-green);
-            color: var(--primary-blue);
-            text-align: center;
-        }
-
-        #waiting-list .section-title {
-            color: var(--primary-blue);
-        }
-
-        #waiting-list p {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            font-weight: 600;
-        }
-
-        .waiting-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        #waiting-list .btn-primary {
-            background-color: var(--primary-blue);
-            color: var(--text-light);
-        }
-        
-        #waiting-list .btn-primary:hover {
-            background-color: #081222;
-        }
-
-        #waiting-list .btn-outline {
-            border-color: var(--primary-blue);
-            color: var(--primary-blue);
-        }
-        
-        #waiting-list .btn-outline:hover {
-            background-color: var(--primary-blue);
-            color: var(--text-light);
-        }
-
-        /* --- Footer --- */
-        footer {
-            background-color: var(--primary-blue);
-            color: var(--text-muted);
-            padding: 40px 0 20px;
-            text-align: center;
-        }
-
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .social-icons a {
-            color: var(--text-light);
-            font-size: 1.5rem;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            color: var(--accent-green);
-        }
-
-        .footer-email {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 1.1rem;
-        }
-        
-        .footer-email:hover {
-            color: var(--accent-green);
-        }
-
-        .copyright {
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 20px;
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* --- Responsive Design --- */
-        @media (max-width: 768px) {
-            #hero h1 { font-size: 2.5rem; }
-            .dual-grid { grid-template-columns: 1fr; }
-            .vehicles-grid { grid-template-columns: 1fr; gap: 20px; }
-            .hero-buttons { flex-direction: column; }
-            .waiting-buttons { flex-direction: column; }
-            .btn { width: 100%; text-align: center; }
-        }
-    </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f5ef">
+<meta name="description" content="Vegzora — Build your aura. Thoughtful skincare and everyday rituals, made to feel like you.">
+<title>Vegzora — Build your aura</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f5ef;--ink:#24251f;--muted:#77776e;--olive:#596348;--sage:#dce1d1;--cream:#eee9dc;--line:#e5e1d7;--white:#fff;--rust:#a96d50}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",sans-serif}a{color:inherit;text-decoration:none}.wrap{width:min(1180px,calc(100% - 48px));margin:auto}
+.announcement{text-align:center;background:var(--ink);color:#f7f5ef;padding:9px 12px;font-size:11px;letter-spacing:1.2px;text-transform:uppercase}
+header{height:78px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.logo{font:800 25px Manrope,sans-serif;letter-spacing:-1.6px}.logo span{color:var(--olive)}
+nav{display:flex;gap:30px;align-items:center;font-size:13px;color:#5e6057}nav a:hover{color:var(--rust)}
+.nav-actions{display:flex;gap:18px;align-items:center}.icon-link{font-size:19px}.menu-btn{display:none}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:610px;align-items:center;gap:48px;padding-top:54px;padding-bottom:65px}
+.eyebrow{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--olive);font-weight:700}
+h1,h2,h3,p{margin-top:0}h1{font:500 clamp(52px,6vw,82px)/.99 Manrope,sans-serif;letter-spacing:-5px;margin:22px 0}
+h1 em{font-style:normal;color:var(--olive)}.hero-copy{max-width:440px;color:var(--muted);font-size:15px;line-height:1.85}
+.actions{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}.btn{display:inline-flex;justify-content:center;align-items:center;padding:14px 22px;font-size:12px;letter-spacing:.5px;text-transform:uppercase;font-weight:700;border:1px solid var(--ink);transition:.2s;cursor:pointer}
+.btn.dark{background:var(--ink);color:white}.btn.dark:hover{background:var(--olive);border-color:var(--olive)}.btn.outline:hover{background:var(--cream)}
+.hero-art{height:490px;position:relative;background:#e4e5d8;overflow:hidden;display:grid;place-items:center}
+.hero-art:before{content:"";position:absolute;width:340px;height:340px;border:1px solid #7f876d66;border-radius:50%}.hero-art:after{content:"";position:absolute;width:430px;height:430px;border:1px solid #7f876d44;border-radius:50%}
+.art-sun{position:absolute;width:230px;height:230px;border-radius:50%;background:#c6c9a8;top:34px;right:35px}
+.product-hero{z-index:1;width:230px;height:330px;background:#f7f5ef;box-shadow:0 25px 60px #343b2c30;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-5deg);position:relative}
+.product-hero:before{content:"";position:absolute;top:-21px;width:70px;height:24px;background:#c5c3b6}
+.product-hero .brand{font:700 22px Manrope;letter-spacing:-1px}.product-hero .product-name{font:500 12px Manrope;margin-top:56px;letter-spacing:1px;text-transform:uppercase}.product-hero .product-type{font-size:9px;color:#777;margin-top:8px;letter-spacing:1.3px}
+.product-hero .stripe{height:1px;background:#c8c6b8;width:55%;margin-top:18px}
+.art-caption{position:absolute;bottom:23px;left:24px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#555d4c;z-index:2}
+.float-note{position:absolute;z-index:2;right:20px;bottom:80px;background:#f7f5ef;padding:13px 17px;font:600 11px Manrope;letter-spacing:.3px;box-shadow:0 8px 24px #343b2c18}
+.marquee{background:var(--olive);color:#fff;padding:17px 0;overflow:hidden;white-space:nowrap;text-align:center;font:500 11px Manrope;letter-spacing:2px;text-transform:uppercase}
+.section{padding:90px 0}.section-head{text-align:center;max-width:600px;margin:0 auto 42px}.section-head h2{font:500 clamp(34px,4vw,48px)/1.1 Manrope;letter-spacing:-2.5px;margin:14px 0}.section-head p{font-size:14px;line-height:1.8;color:var(--muted)}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.product-card{min-width:0}.product-image{height:330px;display:grid;place-items:center;position:relative;overflow:hidden}.product-image.one{background:#e8e6d9}.product-image.two{background:#e5e9df}.product-image.three{background:#eee3d8}
+.bottle{width:120px;height:205px;background:#f7f5ef;position:relative;box-shadow:0 20px 35px #3332;display:flex;flex-direction:column;align-items:center;padding-top:57px}
+.bottle:before{content:"";position:absolute;top:-20px;width:43px;height:24px;background:#b7b4a8}.bottle:after{content:"";position:absolute;top:0;left:0;right:0;height:9px;background:#dedbd0}
+.bottle.darkb{background:#596348;color:#fff}.bottle.rose{background:#d7b8a6}
+.bottle-name{font:700 15px Manrope;letter-spacing:-.5px}.bottle-label{font-size:8px;letter-spacing:1px;margin-top:28px;text-transform:uppercase}.bottle-detail{font-size:7px;margin-top:7px;opacity:.7;letter-spacing:1px}
+.product-info{padding:16px 2px 0}.product-info h3{font:600 16px Manrope;margin-bottom:6px}.product-info p{font-size:12px;color:var(--muted);margin-bottom:11px}.price{font-size:13px;font-weight:700}.tag{position:absolute;top:14px;left:14px;background:#f7f5ef;padding:7px 10px;font-size:9px;text-transform:uppercase;letter-spacing:1px}
+.text-link{display:inline-block;margin-top:12px;font-size:10px;text-transform:uppercase;letter-spacing:1.2px;border-bottom:1px solid var(--ink);padding-bottom:4px}
+.manifesto{display:grid;grid-template-columns:1fr 1fr;min-height:440px;background:#e7e8dc}.manifesto-visual{position:relative;overflow:hidden;background:#d6dacb;display:grid;place-items:center}.orb{width:270px;height:270px;border-radius:50%;background:#b7bea3;box-shadow:inset -30px -20px 50px #78826844,0 20px 50px #6a735533}.manifesto-visual:after{content:"VEGZORA / BUILD YOUR AURA";position:absolute;bottom:25px;left:28px;font-size:10px;letter-spacing:2px;color:#505b45}
+.manifesto-copy{padding:70px;display:flex;flex-direction:column;justify-content:center}.manifesto-copy h2{font:500 clamp(34px,4vw,48px)/1.08 Manrope;letter-spacing:-2.5px;margin:17px 0}.manifesto-copy p{font-size:14px;line-height:1.9;color:#656b5d;max-width:430px}
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}.value{text-align:center;padding:15px}.value-num{font:500 34px Manrope;color:#9ba28c}.value h3{font:600 16px Manrope;margin:12px 0 8px}.value p{font-size:12px;line-height:1.8;color:var(--muted)}
+.newsletter{background:#e8e6d9;padding:72px 20px;text-align:center}.newsletter h2{font:500 clamp(34px,4vw,46px) Manrope;letter-spacing:-2px;margin:14px 0}.newsletter p{font-size:13px;color:var(--muted)}
+.signup{display:flex;max-width:440px;margin:25px auto 0;border-bottom:1px solid #898c7c}.signup input{border:0;background:transparent;outline:0;flex:1;padding:14px 5px;font:13px "DM Sans"}.signup button{border:0;background:transparent;font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer}
+footer{padding:35px 0;display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:11px}footer .footlogo{font:800 21px Manrope;color:var(--ink);letter-spacing:-1px}.social{display:flex;gap:20px}
+@media(max-width:800px){nav{display:none}.menu-btn{display:block;border:0;background:none;font-size:22px}.hero{grid-template-columns:1fr;padding-top:55px}.hero-art{height:400px}.products{grid-template-columns:1fr 1fr}.manifesto{grid-template-columns:1fr}.manifesto-visual{min-height:300px}.manifesto-copy{padding:45px 30px}.values{gap:10px}}
+@media(max-width:520px){.wrap{width:calc(100% - 32px)}header{height:68px}.hero{gap:30px;padding-bottom:45px}h1{letter-spacing:-3px}.hero-art{height:350px}.products{grid-template-columns:1fr}.product-image{height:330px}.section{padding:65px 0}.values{grid-template-columns:1fr}footer{gap:15px;align-items:flex-start;flex-direction:column}}
+</style>
 </head>
 <body>
-
-    <header>
-        <div class="nav-container">
-            <a href="#" class="logo">Veg<span>zora</span></a>
-        </div>
-    </header>
-
-    <section id="hero">
-        <div class="container">
-            <h1>Earn From Your Vehicle <br>When You're Not Using It</h1>
-            <p class="subheading">Vegzora is a smart vehicle sharing platform where you can rent vehicles or list your own vehicle and earn passive income.</p>
-            <div class="launch-badge"><i class="fas fa-map-marker-alt"></i> Launching Soon in Indore</div>
-            <div class="hero-buttons">
-                <a href="https://forms.gle/SbBBjYCrX3gzSsd27" class="btn btn-primary">Join Waiting List as Vehicle Owner</a>
-                <a href="https://forms.gle/ywcTmmBDXp6gokVGA" class="btn btn-outline">Join Waiting List as Renter</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="how-it-works">
-        <div class="container text-center">
-            <h2 class="section-title">How It Works</h2>
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-icon">
-                        <i class="fas fa-clipboard-list"></i>
-                    </div>
-                    <h3>Step 1: List your vehicle</h3>
-                    <p>Register your vehicle on our platform with basic details and availability.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-icon">
-                        <i class="fas fa-calendar-check"></i>
-                    </div>
-                    <h3>Step 2: Customers book</h3>
-                    <p>Verified customers browse and book your vehicle for their required duration.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-icon">
-                        <i class="fas fa-wallet"></i>
-                    </div>
-                    <h3>Step 3: Earn income</h3>
-                    <p>Sit back and earn up to 80% of the rental income directly to your bank account.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="vehicle-types">
-        <div class="container text-center">
-            <h2 class="section-title">Vehicles Available</h2>
-            <div class="vehicles-grid">
-                <div class="vehicle-item">
-                    <i class="fas fa-motorcycle"></i>
-                    <h4>Scooter</h4>
-                </div>
-                <div class="vehicle-item">
-                    <i class="fas fa-bicycle"></i>
-                    <h4>Bike</h4>
-                </div>
-                <div class="vehicle-item">
-                    <i class="fas fa-car"></i>
-                    <h4>Car</h4>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="dual-roles">
-        <div class="container">
-            <div class="dual-grid">
-                <div class="role-card owner">
-                    <h2>Earn From Your Idle Vehicle</h2>
-                    <p>If your vehicle is parked and not being used, list it on Vegzora and start earning. We handle bookings, customers, and payments.</p>
-                </div>
-                <div class="role-card renter">
-                    <h2>Rent Vehicles Easily</h2>
-                    <p>Rent scooters, bikes, and cars easily at affordable prices through Vegzora. Find the perfect ride for your next journey.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="waiting-list">
-        <div class="container">
-            <h2 class="section-title">Get Ready to Ride & Earn</h2>
-            <p>Be the first to access Vegzora when we launch.</p>
-            <div class="waiting-buttons">
-                <a href="https://forms.gle/SbBBjYCrX3gzSsd27" target="_blank" class="btn btn-primary">Vehicle Owner Waiting List</a>
-                <a href="https://forms.gle/ywcTmmBDXp6gokVGA" target="_blank" class="btn btn-outline">Renter Waiting List</a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-content">
-            <div class="social-icons">
-                <a href="https://www.instagram.com/vegzora/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            </div>
-            <a href="mailto:vegzora@gmail.com" class="footer-email">vegzora@gmail.com</a>
-        </div>
-        <div class="copyright">
-            © 2026 Vegzora. All rights reserved.
-        </div>
-    </footer>
-
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
-
-</body>
-</html>
+<div class="announcement">A little more you, in every ritual — discover Vegzora</div>
+<header class="wrap">
+  <a class="logo" href="#">vegzora<span>.</span></a>
+  <nav><a href="#shop">Shop</a><a href="#philosophy">Our philosophy</a><a href="#ritual">The Vegzora ritual</a></nav>
+  <div class="nav-actions"><a class="icon-link" href="#newsletter" aria-label="Join newsletter">♡</a><button class="menu-btn" aria-label="Menu" onclick="document.getElementById('shop').scrollIntoView()">☰</button></div>
+</header>
+<main>
+<section class="hero wrap">
+  <div>
+    <div class="eyebrow">Everyday care. Your kind of confidence.</div>
+    <h1>Build<br>your <em>aura.</em></h1>
+    <p class="hero-copy">Thoughtful beauty for the way you want to feel. Meet everyday essentials designed to make your care routine feel simple, considered and unmistakably yours.</p>
+    <div class="actions"><a class="btn dark" href="#shop">Explore the collection ↗</a><a class="btn outline" href="#philosophy">Discover Vegzora</a></div>
+  </div>
+  <div class="hero-art">
+    <div class="art-sun"></div>
+    <div class="product-hero"><div class="brand">vegzora.</div><div class="product-name">Daily glow serum</div><div class="product-type">A considered daily ritual</div><div class="stripe"></div><div class="product-type">30 ml / 1.0 fl oz</div></div>
+    <div class="float-note">Care that feels like you.</div><div class="art-caption">The art of everyday care — 01</div>
+  </div>
+</section>
+<div class="marquee">LESS NOISE · MORE INTENTION · EVERYDAY RITUALS · BUILD YOUR AURA ·</div>
+<section class="section wrap" id="shop">
+  <div class="section-head"><div class="eyebrow">The edit</div><h2>Your routine, thoughtfully curated.</h2><p>A considered starting point for your everyday care ritual. Explore the product concepts Vegzora is building towards.</p></div>
+  <div class="products">
+    <article class="product-card"><div class="product-image one"><span class="tag">The daily essential</span><div class="bottle"><div class="bottle-name">vegzora.</div><div class="bottle-label">Daily glow serum</div><div class="bottle-detail">YOUR SKIN, YOUR GLOW</div></div></div><div class="product-info"><h3>Daily Glow Serum</h3><p>A lightweight step for your everyday routine.</p><span class="price">Coming soon</span></div></article>
+    <article class="product-card"><div class="product-image two"><span class="tag">The gentle reset</span><div class="bottle darkb"><div class="bottle-name">vegzora.</div><div class="bottle-label">Gentle face wash</div><div class="bottle-detail">A FRESH START</div></div></div><div class="product-info"><h3>Gentle Face Wash</h3><p>A simple cleanse to start and end your day.</p><span class="price">Coming soon</span></div></article>
+    <article class="product-card"><div class="product-image three"><span class="tag">The daily comfort</span><div class="bottle rose"><div class="bottle-name">vegzora.</div><div class="bottle-label">Daily moisturiser</div><div class="bottle-detail">COMFORT, EVERY DAY</div></div></div><div class="product-info"><h3>Daily Moisturiser</h3><p>An easy, comforting layer in your daily ritual.</p><span class="price">Coming soon</span></div></article>
+  </div>
+</section>
+<section class="manifesto" id="philosophy">
+  <div class="manifesto-visual"><div class="orb"></div></div>
+  <div class="manifesto-copy"><div class="eyebrow">A little philosophy</div><h2>Beauty isn't about becoming someone else.</h2><p>It's about feeling more like yourself. Vegzora is being built around uncomplicated routines, considered products and a belief that confidence comes in many forms. No pressure to be perfect. Just space to build your own aura.</p><a class="text-link" href="#ritual">Our point of view ↗</a></div>
+</section>
+<section class="section wrap" id="ritual">
+  <div class="section-head"><div class="eyebrow">The Vegzora standard</div><h2>Keep your ritual intentional.</h2><p>We believe good beauty starts with clarity: know what you're using, why it belongs in your routine and how it makes you feel.</p></div>
+  <div class="values">
+    <div class="value"><div class="value-num">01</div><h3>Less, but considered</h3><p>A focused approach to everyday essentials. Make room for what works for your routine.</p></div>
+    <div class="value"><div class="value-num">02</div><h3>Clarity over clutter</h3><p>Clear product information and thoughtful choices, without the unnecessary noise.</p></div>
+    <div class="value"><div class="value-num">03</div><h3>Your aura, your rules</h3><p>Beauty is personal. Your routine should feel comfortable, flexible and completely yours.</p></div>
+  </div>
+</section>
+<section class="newsletter" id="newsletter"><div class="eyebrow">Be first to know</div><h2>Your aura era starts here.</h2><p>Sign up for launch notes, first looks and the occasional little reminder to make time for you.</p>
+  <form class="signup" id="signup"><input type="email" placeholder="Your email address" aria-label="Email address" required><button type="submit">COUNT ME IN ↗</button></form><div id="msg" style="font-size:12px;color:#596348;margin-top:12px" aria-live="polite"></div>
+</section>
+</main>
+<footer class="wrap"><div class="footlogo">vegzora<span style="color:var(--olive)">.</span></div><div>Build your aura.</div><div class="social"><a href="#newsletter">Instagram</a><a href="#philosophy">Our story</a><span>© <span id="year"></span> Vegzora</span></div></footer>
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+document.getElementById('signup').addEventListener('submit',function(e){e.preventDefault();document.getElementById('msg').textContent='Thanks for your interest. Connect this form to your email platform to collect sign-ups.';this.reset();});
+</script>
+</body></html>
